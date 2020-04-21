@@ -1,0 +1,105 @@
+# github.com/GoAdminGroup/go-admin v1.1.7
+github.com/GoAdminGroup/go-admin/adapter
+github.com/GoAdminGroup/go-admin/adapter/beego
+github.com/GoAdminGroup/go-admin/context
+github.com/GoAdminGroup/go-admin/engine
+github.com/GoAdminGroup/go-admin/modules/auth
+github.com/GoAdminGroup/go-admin/modules/config
+github.com/GoAdminGroup/go-admin/modules/db
+github.com/GoAdminGroup/go-admin/modules/db/dialect
+github.com/GoAdminGroup/go-admin/modules/db/drivers/mysql
+github.com/GoAdminGroup/go-admin/modules/language
+github.com/GoAdminGroup/go-admin/modules/logger
+github.com/GoAdminGroup/go-admin/modules/menu
+github.com/GoAdminGroup/go-admin/modules/page
+github.com/GoAdminGroup/go-admin/modules/service
+github.com/GoAdminGroup/go-admin/modules/system
+github.com/GoAdminGroup/go-admin/modules/utils
+github.com/GoAdminGroup/go-admin/plugins
+github.com/GoAdminGroup/go-admin/plugins/admin/models
+github.com/GoAdminGroup/go-admin/plugins/admin/modules
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/constant
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/form
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/paginator
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/parameter
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/table
+github.com/GoAdminGroup/go-admin/template
+github.com/GoAdminGroup/go-admin/template/components
+github.com/GoAdminGroup/go-admin/template/login
+github.com/GoAdminGroup/go-admin/template/types
+github.com/GoAdminGroup/go-admin/template/types/form
+github.com/GoAdminGroup/go-admin/template/types/table
+# github.com/GoAdminGroup/themes v0.0.18
+github.com/GoAdminGroup/themes/adminlte
+github.com/GoAdminGroup/themes/adminlte/resource
+# github.com/NebulousLabs/fastrand v0.0.0-20181203155948-6fb6489aac4e
+github.com/NebulousLabs/fastrand
+# github.com/astaxie/beego v1.12.1
+github.com/astaxie/beego
+github.com/astaxie/beego/config
+github.com/astaxie/beego/context
+github.com/astaxie/beego/context/param
+github.com/astaxie/beego/grace
+github.com/astaxie/beego/httplib
+github.com/astaxie/beego/logs
+github.com/astaxie/beego/orm
+github.com/astaxie/beego/plugins/cors
+github.com/astaxie/beego/session
+github.com/astaxie/beego/toolbox
+github.com/astaxie/beego/utils
+# github.com/go-sql-driver/mysql v1.4.1
+github.com/go-sql-driver/mysql
+# github.com/gogf/gf v1.11.3
+github.com/gogf/gf/text/gregex
+# github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1
+github.com/gopherjs/gopherjs/js
+# github.com/jtolds/gls v4.20.0+incompatible
+github.com/jtolds/gls
+# github.com/konsorten/go-windows-terminal-sequences v1.0.1
+github.com/konsorten/go-windows-terminal-sequences
+# github.com/mattn/go-colorable v0.1.4
+github.com/mattn/go-colorable
+# github.com/mattn/go-isatty v0.0.9
+github.com/mattn/go-isatty
+# github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
+github.com/mgutz/ansi
+# github.com/satori/go.uuid v1.2.0
+github.com/satori/go.uuid
+# github.com/shiena/ansicolor v0.0.0-20151119151921-a422bbe96644
+github.com/shiena/ansicolor
+# github.com/sirupsen/logrus v1.4.2
+github.com/sirupsen/logrus
+# github.com/smartystreets/assertions v0.0.0-20180927180507-b2de0cb4f26d
+github.com/smartystreets/assertions
+github.com/smartystreets/assertions/internal/go-render/render
+github.com/smartystreets/assertions/internal/oglematchers
+# github.com/smartystreets/goconvey v1.6.4
+github.com/smartystreets/goconvey/convey
+github.com/smartystreets/goconvey/convey/gotest
+github.com/smartystreets/goconvey/convey/reporting
+# golang.org/x/crypto v0.0.0-20191112222119-e1110fd1c708
+golang.org/x/crypto/acme
+golang.org/x/crypto/acme/autocert
+golang.org/x/crypto/bcrypt
+golang.org/x/crypto/blake2b
+golang.org/x/crypto/blowfish
+# golang.org/x/net v0.0.0-20190620200207-3b0461eec859
+golang.org/x/net/idna
+# golang.org/x/sys v0.0.0-20191204072324-ce4227a45e2e
+golang.org/x/sys/cpu
+golang.org/x/sys/unix
+# golang.org/x/text v0.3.2
+golang.org/x/text/internal/language
+golang.org/x/text/internal/language/compact
+golang.org/x/text/internal/tag
+golang.org/x/text/language
+golang.org/x/text/secure/bidirule
+golang.org/x/text/transform
+golang.org/x/text/unicode/bidi
+golang.org/x/text/unicode/norm
+# google.golang.org/appengine v1.6.5
+google.golang.org/appengine/cloudsql
+# gopkg.in/ini.v1 v1.51.0
+gopkg.in/ini.v1
+# gopkg.in/yaml.v2 v2.2.7
+gopkg.in/yaml.v2
