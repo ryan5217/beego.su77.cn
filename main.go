@@ -46,7 +46,7 @@ func main() {
 		//指的是允许的Header的种类
 		AllowHeaders: 	[]string{"*"},
 		//公开的HTTP标头列表
-		ExposeHeaders:	[]string{"Content-Length"},
+		ExposeHeaders:  []string{"X-Requested-With, Content-Type, X-Token-Auth, Authorization, Content-Length"},
 		//如果设置，则允许共享身份验证凭据，例如cookie
 		AllowCredentials: true,
 	}))
