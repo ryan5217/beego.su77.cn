@@ -20,10 +20,6 @@ type Users struct {
 	UserProfile []*UserProfile `orm:"reverse(many)"`
 }
 
-func init() {
-	orm.RegisterModel(new(Users))
-}
-
 func CheckPassword(mobile, password string) (*Users, bool) {
 	ormer := orm.NewOrm()
 

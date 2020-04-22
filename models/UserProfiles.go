@@ -1,7 +1,6 @@
 package models
 
 import (
-	"github.com/astaxie/beego/orm"
 	"time"
 )
 
@@ -14,6 +13,3 @@ type UserProfile struct {
 	Users *Users `orm:"rel(fk)"`
 }
 
-func init() {
-	orm.RegisterModel(new(UserProfile))
-}

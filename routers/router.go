@@ -20,12 +20,8 @@ func init() {
     beego.Router("/data/test", &apiV1.DataController{}, "get:Test")
     beego.Router("/data/list", &apiV1.DataController{}, "get:List")
 
-    beego.Router("/get_orm", &apiV1.GetOrmController{}, "get:GetOrm")
-    beego.Router("/test_orm", &apiV1.GetOrmController{}, "get:TestOrm")
-
     beego.Any("/any", func(context *context.Context) {
 		var beego beego.Controller
-
 
     	data := make(map[string] interface{})
     	data["nihao"] = "nihao"

@@ -1,55 +1,15 @@
 package main
 
 import (
+	"beego.su77.cn/middlewares"
 	_ "beego.su77.cn/routers"
 	_ "github.com/GoAdminGroup/go-admin/adapter/beego"
-	_ "github.com/GoAdminGroup/go-admin/modules/db/drivers/mysql"
 	_ "github.com/GoAdminGroup/themes/adminlte"
-	"github.com/astaxie/beego/plugins/cors"
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/orm"
-	_ "github.com/go-sql-driver/mysql" // import your used driver
-	"time"
 )
 
-func init() {
-	//数据库链接
-	dbDriver := beego.AppConfig.String("DB_DRIVER")
-	dbConnection := beego.AppConfig.String("DB_CONNECTION")
-	dbHost := beego.AppConfig.String("DB_HOST")
-	dbPort := beego.AppConfig.String("DB_PORT")
-	dbDatabase := beego.AppConfig.String("DB_DATABASE")
-	dbUsername := beego.AppConfig.String("DB_USERNAME")
-	dbPassword := beego.AppConfig.String("DB_PASSWORD")
-	dbPrefix := beego.AppConfig.String("DB_PREFIX")
-
-	dsn := dbUsername +":"+ dbPassword +"@tcp("+ dbHost +":"+ dbPort +")/"+ dbDatabase
-
-	_ = orm.RegisterDataBase(dbConnection, dbDriver, dsn)
-	orm.DefaultTimeLoc = time.UTC
-	orm.RegisterModelWithPrefix(dbPrefix)
-	orm.Debug = true
-
-	//var w io.Writer
-	//orm.DebugLog = orm.NewLog(w)
-
-	_ = orm.RunSyncdb(dbConnection, false, true) //同步数据表
-}
-
 func main() {
-	beego.InsertFilter("*", beego.BeforeRouter, cors.Allow(&cors.Options{
-		//允许访问所有源
-		AllowAllOrigins: true,
-		//可选参数"GET", "POST", "PUT", "DELETE", "OPTIONS" (*为所有)
-		//其中Options跨域复杂请求预检
-		AllowMethods:   []string{"*"},
-		//指的是允许的Header的种类
-		AllowHeaders: 	[]string{"*"},
-		//公开的HTTP标头列表
-		ExposeHeaders:  []string{"X-Requested-With, Content-Type, X-Token-Auth, Authorization, Content-Length"},
-		//如果设置，则允许共享身份验证凭据，例如cookie
-		AllowCredentials: true,
-	}))
+	middlewares.CorsHandler()
 
 	beego.Run()
 
