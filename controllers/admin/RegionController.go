@@ -5,6 +5,7 @@ import (
 	"beego.su77.cn/utils"
 	"fmt"
 	"github.com/astaxie/beego/orm"
+	"strconv"
 	"time"
 )
 
@@ -120,4 +121,52 @@ func (this *RegionController) Select() {
 	}
 	this.StopRun()
 
+}
+
+func (this *RegionController) GetAllRegions() {
+
+	id := this.Input().Get("id")
+	intid, err := strconv.Atoi(id)
+
+	if err != nil {
+		intid = 0
+	}
+
+	var contoiner []map[string] interface{}
+	provinces := models.GetLevelOne(intid)
+
+	for _, v1 := range provinces {
+		tclass1 := formatRegion(v1)
+
+		cities := models.GetRegionsByParentId(v1.Id)
+		var tclass2 []map[string]interface{}
+		for _, v2 := range cities {
+			tclass3 := formatRegion(v2)
+
+			areas := models.GetRegionsByParentId(v2.Id)
+			tclass3["child"] = areas
+			tclass2 = append(tclass2, tclass3)
+		}
+		tclass1["child"] = tclass2
+		contoiner = append(contoiner, tclass1)
+	}
+	this.Data["json"] = Data{0, "success", contoiner}
+	this.ServeJSON()
+
+	this.StopRun()
+}
+
+func formatRegion(region models.Regions) map[string]interface{} {
+
+	format := make(map[string] interface{})
+	format["id"] = region.Id
+	format["area_name"] = region.AreaName
+	format["parent_id"] = region.ParentId
+	format["city_code"] = region.CityCode
+	format["lng"] = region.Lng
+	format["lat"] = region.Lat
+	format["level"] = region.Level
+	format["sort"] = region.Sort
+
+	return format
 }

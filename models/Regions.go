@@ -29,3 +29,48 @@ func GetRegions(ids []int) []Regions {
 
 	return regions
 }
+
+func GetRegionsByParentId(id int) []Regions {
+	o := orm.NewOrm()
+	var regions []Regions
+
+	_, _ = o.QueryTable(new(Regions)).Filter("ParentId", id).All(&regions)
+
+	return regions
+}
+
+func GetLevelOne(id int) []Regions {
+	o := orm.NewOrm()
+
+	var regions []Regions
+
+	if id > 0 {
+		_, _ = o.QueryTable(new(Regions)).Filter("Level", 1).Filter("Id", id).All(&regions)
+
+	} else {
+		_, _ = o.QueryTable(new(Regions)).Filter("Level", 1).All(&regions)
+	}
+	//ids := [2]int{360000, 110000}
+
+	return regions
+}
+
+func GetLevelTwo() []Regions {
+	o := orm.NewOrm()
+
+	var regions []Regions
+
+	_, _ = o.QueryTable(new(Regions)).Filter("Level", 2).All(&regions)
+
+	return regions
+}
+
+func GetLevelThree() []Regions {
+	o := orm.NewOrm()
+
+	var regions []Regions
+
+	_, _ = o.QueryTable(new(Regions)).Filter("Level", 3).All(&regions)
+
+	return regions
+}

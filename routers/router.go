@@ -46,6 +46,7 @@ func init() {
 			beego.NSRouter("/values", &admin.RegionController{}, "get:Values"),
 			beego.NSRouter("/curd", &admin.RegionController{}, "get:Curd"),
 			beego.NSRouter("/select", &admin.RegionController{}, "get:Select"),
+			beego.NSRouter("/get_all_regions", &admin.RegionController{}, "get:GetAllRegions"),
 		)
 
 	ns_goadmin :=
