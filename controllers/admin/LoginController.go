@@ -14,12 +14,6 @@ type LoginController struct {
 	BaseController
 }
 
-type Data struct {
-	Code int `json:"code"`
-	Message string `json:"message"`
-	Data interface{} `json:"data"`
-}
-
 func (this *LoginController) Login() {
 	this.Data["name"] = "登录"
 

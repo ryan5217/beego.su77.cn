@@ -12,12 +12,6 @@ type RegionController struct {
 	BaseController
 }
 
-type Datas struct {
-	Code int `json:"code"`
-	Message string `json:"message"`
-	Data interface{} `json:"data"`
-}
-
 func (this *RegionController) Index() {
 	ids := []int{110000, 110102, 110107}
 
@@ -28,10 +22,10 @@ func (this *RegionController) Index() {
 
 	if len(res)  > 0 {
 		emptys["data"] = res
-		this.Data["json"] = Datas{0, "succss", emptys}
+		this.Data["json"] = Data{0, "succss", emptys}
 	} else {
 		emptys["data"] = []int{}
-		this.Data["json"] = Datas{0, "succss", emptys}
+		this.Data["json"] = Data{0, "succss", emptys}
 	}
 
 	//this.Data["json"] = res
