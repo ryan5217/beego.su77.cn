@@ -15,9 +15,9 @@ type Users struct {
 	Gender int `json:"gender"`
 	City string `json:"city"`
 	Ip string `json:"ip"`
-	CreatedAt time.Time `json:"created_at",orm:"auto_now_add;type(datetime)"`
-	UpdatedAt time.Time `json:"updated_at",orm:"auto_now;type(datetime)"`
-	UserProfile []*UserProfile `orm:"reverse(many)"`
+	CreatedAt time.Time `json:"created_at" orm:"auto_now_add;type(datetime)"`
+	UpdatedAt time.Time `json:"updated_at" orm:"auto_now;type(datetime)"`
+	UserProfile []*UserProfile `json:"user_profile" orm:"reverse(many)"`
 }
 
 func CheckPassword(mobile, password string) (*Users, bool) {

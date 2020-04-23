@@ -10,6 +10,7 @@ import (
 
 func main() {
 	middlewares.CorsHandler()
+	middlewares.AdminAuthHandler()
 
 	beego.Run()
 

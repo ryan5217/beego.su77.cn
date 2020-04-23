@@ -8,6 +8,7 @@ require (
 	github.com/GoAdminGroup/go-admin v1.1.7
 	github.com/GoAdminGroup/themes v0.0.18
 	github.com/astaxie/beego v1.12.1
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/gogf/gf v1.11.3 // indirect
 	github.com/mattn/go-isatty v0.0.9 // indirect

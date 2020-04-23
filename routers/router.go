@@ -40,6 +40,7 @@ func init() {
     	beego.NewNamespace("/admin",
 			beego.NSRouter("/login", &admin.LoginController{}, "get:Login;post:DoLogin"),
 			beego.NSRouter("/register", &admin.LoginController{}, "get:Register;post:DoRegister"),
+			beego.NSRouter("/get_user", &admin.LoginController{}, "post:GetUser"),
 			beego.NSRouter("/index", &admin.IndexController{}),
 			beego.NSRouter("/curl", &admin.LoginController{}, "get:Curl"),
 			beego.NSRouter("/region", &admin.RegionController{}, "get:Index"),
@@ -72,6 +73,7 @@ func init() {
 	ns_home :=
 		beego.NewNamespace("/portal",
 			beego.NSRouter("/index", &portal.IndexController{}, "get:Get"),
+			//beego.NSRouter("/login", &portal.{}),
 		)
 	//注册 namespace
 	beego.AddNamespace(ns_admin, ns_goadmin, ns_home)
