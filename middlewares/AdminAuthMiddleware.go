@@ -1,10 +1,10 @@
 package middlewares
 
 import (
-	"fmt"
+	"beego.su77.cn/controllers/admin"
+	"errors"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
-	"strings"
 )
 
 func AdminAuthHandler() {
@@ -18,12 +18,17 @@ func AdminAuthHandler() {
 				//todo 需要修改 优化代码
 				token := context.Request.Header.Get("authorization")
 
-				fmt.Print(strings.Index(context.Request.RequestURI,"/admin/login"))
+				defer func() {
+					//捕获到异常错误 返回信息401未授权
+					if r := recover(); r != nil {
 
-				if strings.Index(context.Request.RequestURI,"/admin/login") >= 0 || strings.Index(context.Request.RequestURI,"/static") >= 0 {
-					//过滤不要控制的
-				} else if token == "" {
-					_, _ = context.ResponseWriter.Write([]byte("您无权访问"))
+						context.Redirect(302, "/admin/login")
+
+					}
+				}()
+				if len(admin.CheckToken(token)) == 0 {
+					context.Redirect(302, "/admin/login")
+					panic(errors.New("user stop run"))
 				}
 			}
 		}
