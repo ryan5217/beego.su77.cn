@@ -11,7 +11,7 @@ type Users struct {
 	Id int `json:"id"`
 	Name string `json:"name"`
 	Mobile string `json:"mobile"`
-	Password string `json:"password"`
+	Password string `json:"-"`
 	Gender int `json:"gender"`
 	City string `json:"city"`
 	Ip string `json:"ip"`

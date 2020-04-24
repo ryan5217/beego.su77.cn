@@ -9,7 +9,8 @@ import (
 
 func AdminAuthHandler() {
 
-	beego.InsertFilter("/*",beego.BeforeRouter, func(context *context.Context) {
+	beego.InsertFilter("/admin/*",beego.BeforeRouter, func(context *context.Context) {
+
 		if context.Request.RequestURI != "/admin/login" {
 
 			if context.Request.RequestURI != "/admin/register" {
@@ -26,6 +27,7 @@ func AdminAuthHandler() {
 
 					}
 				}()
+
 				if len(admin.CheckToken(token)) == 0 {
 					context.Redirect(302, "/admin/login")
 					panic(errors.New("user stop run"))

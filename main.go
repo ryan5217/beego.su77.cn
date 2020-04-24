@@ -1,6 +1,7 @@
 package main
 
 import (
+	"beego.su77.cn/controllers"
 	"beego.su77.cn/middlewares"
 	_ "beego.su77.cn/routers"
 	_ "github.com/GoAdminGroup/go-admin/adapter/beego"
@@ -10,7 +11,8 @@ import (
 
 func main() {
 	middlewares.CorsHandler()
-	middlewares.AdminAuthHandler()
+	//middlewares.AdminAuthHandler()
+	beego.ErrorController(&controllers.ErrorController{})
 
 	beego.Run()
 

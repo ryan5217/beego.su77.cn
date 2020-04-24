@@ -161,6 +161,9 @@ func CreateToken(Phone string) string {
 }
 
 func (this *LoginController) GetUser() {
+
+	this.Abort("404")
+
 	token := this.Ctx.Request.Header.Get("authorization")
 
 	defer func() {
@@ -189,14 +192,11 @@ func (this *LoginController) GetUser() {
 		this.Data["json"] = Data{401, "未查询到用户", make(map[string] string)}
 	}
 
-	this.Data["json"] = Data{
-		0,
-		"success",
-		user,
+	if user.Id > 0 {
+		this.ApiJsonReturn(0, "success", user)
 	}
 
-	this.ServeJSON()
-	this.StopRun()
+	this.ApiJsonReturn(1, "未找到", make(map[string]string))
 }
 
 func CheckToken(tokenString string) string {
@@ -211,4 +211,23 @@ func CheckToken(tokenString string) string {
 	claims,_:=token.Claims.(jwt.MapClaims)
 	mobile =claims["phone"].(string)
 	return mobile
+}
+
+func (this *LoginController) TestError() {
+
+	phone := this.GetString("phone")
+
+	//_ = errors.New("dsdasd")
+	//
+	//errors.Is()
+
+	eee := [2][2]string {
+		{"wq",phone},
+		{"dsad", "adasd"},
+	}
+
+
+	this.ApiJsonReturn(100, "success", eee)
+
+	//this.ApiJsonReturn(100, "success", eee)
 }

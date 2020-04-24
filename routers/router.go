@@ -11,7 +11,8 @@ import (
 )
 
 func init() {
-    beego.Router("/", &controllers.MainController{})
+
+	beego.Router("/", &controllers.MainController{})
 
     //beego.Router()
     beego.Router("/test", &apiV1.MainController{})
@@ -38,9 +39,10 @@ func init() {
     //admin登录test
     ns_admin :=
     	beego.NewNamespace("/admin",
-			beego.NSRouter("/login", &admin.LoginController{}, "get:Login;post:DoLogin"),
+    		beego.NSRouter("/login", &admin.LoginController{}, "get:Login;post:DoLogin"),
 			beego.NSRouter("/register", &admin.LoginController{}, "get:Register;post:DoRegister"),
-			beego.NSRouter("/get_user", &admin.LoginController{}, "post:GetUser"),
+			beego.NSRouter("/get_user", &admin.LoginController{}, "post:GetUser;get:GetUser"),
+			beego.NSRouter("/test", &admin.LoginController{}, "get:TestError"),
 			beego.NSRouter("/index", &admin.IndexController{}),
 			beego.NSRouter("/curl", &admin.LoginController{}, "get:Curl"),
 			beego.NSRouter("/region", &admin.RegionController{}, "get:Index"),
