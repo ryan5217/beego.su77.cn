@@ -162,7 +162,7 @@ func CreateToken(Phone string) string {
 
 func (this *LoginController) GetUser() {
 
-	this.Abort("404")
+	//this.Abort("404")
 
 	token := this.Ctx.Request.Header.Get("authorization")
 
