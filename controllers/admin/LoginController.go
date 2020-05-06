@@ -37,6 +37,11 @@ func (this *LoginController) DoLogin() {
 	data["ok"] = ok
 
 	if  ok {
+		auth := make(map[string] interface{})
+		auth["authorization"] = CreateToken(users.Mobile)
+		auth["exp"] = TokenExp()
+		data["auth"] =  auth
+
 		this.Data["json"] = Data{SuccessCode, Message, data}
 	} else {
 
@@ -153,10 +158,10 @@ func CreateToken(Phone string) string {
 	token := jwt.New(jwt.SigningMethodHS256)
 	claims :=make(jwt.MapClaims)
 	claims["exp"] = TokenExp()
-	claims["iat"] =time.Now().Unix()
-	claims["phone"]=Phone
-	token.Claims=claims
-	tokenString,_ :=token.SignedString([]byte(beego.AppConfig.String("TokenSecrets")))
+	claims["iat"] = time.Now().Unix()
+	claims["phone"] = Phone
+	token.Claims = claims
+	tokenString,_ := token.SignedString([]byte(beego.AppConfig.String("TokenSecrets")))
 	return tokenString
 }
 

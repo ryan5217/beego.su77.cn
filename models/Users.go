@@ -2,6 +2,7 @@ package models
 
 import (
 	"beego.su77.cn/utils"
+	"errors"
 	"github.com/astaxie/beego/orm"
 	"time"
 )
@@ -18,6 +19,17 @@ type Users struct {
 	CreatedAt time.Time `json:"created_at" orm:"auto_now_add;type(datetime)"`
 	UpdatedAt time.Time `json:"updated_at" orm:"auto_now;type(datetime)"`
 	UserProfile []*UserProfile `json:"user_profile" orm:"reverse(many)"`
+}
+
+func add(a, b *int) (c int, err error) {
+	if (*a < 0 || *b < 0) {
+		err = errors.New("只支持非负整数相加")
+		return
+	}
+	*a *= 2
+	*b *= 3
+	c = *a + *b
+	return
 }
 
 func CheckPassword(mobile, password string) (*Users, bool) {
